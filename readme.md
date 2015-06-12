@@ -2,7 +2,8 @@
 
 ## What?
 
-Part of my [UT on Rails course](http://schneems.com/ut-rails). Use pure ruby and standard libraries to perform a few basic functions to generate useful html pages using as little code as possible.
+Part of my [UT on Rails course](http://schneems.com/ut-rails). Use pure ruby and standard libraries to perform a few basic
+ functions to generate useful html pages using as little code as possible.
 
 We gradually increase the complexity of the code as we add more functionality and make development simpler.
 
@@ -45,7 +46,8 @@ Once you're done with the homework and it has been committed to your laptop, pus
 
 ## Erb
 
-ERB stands for Embedded RuBy. It is useful to use for embedding ruby code in html. Ruby goes inside of tags that look like this `<%= %>`. Here is an example you can run through in irb
+ERB stands for Embedded RuBy. It is useful to use for embedding ruby code in html.
+ Ruby goes inside of tags that look like this `<%= %>`. Here is an example you can run through in irb
 
     $ irb
     require 'erb'
@@ -58,9 +60,11 @@ ERB stands for Embedded RuBy. It is useful to use for embedding ruby code in htm
     # => <h2>RICHARD</h2>
 
 
-The flow for generating ruby powered html generally works like this. First we generate a document that is written in a html that has erb in it. These files typically have the extension `.html.erb`. We then read in the document, parse the erb and then we have fully valid html. We can do whatever we like with that such as write it to a static file or serve it dynamically with a server.
+The flow for generating ruby powered html generally works like this.
+ First we generate a document that is written in a html that has erb in it. These files typically have the extension `.html.erb`. We then read in the document, parse the erb and then we have fully valid html. We can do whatever we like with that such as write it to a static file or serve it dynamically with a server.
 
-Erb blocks without the equals will not print out `<% %>` but will still be evaluated. You can use these for doing work such as math in your erb template.
+Erb blocks without the equals will not print out `<% %>` but will still be evaluated.
+You can use these for doing work such as math in your erb template.
 
 
 ## 1) Using ERB
@@ -71,11 +75,14 @@ In the terminal you can run
 
 Homework:
 
-Open the file in your favorite text editor to modify the file, and re-run it using ruby. Add at least 3 more lines and 3 more erb blocks with different types of contents, consider using strings, arrays, hashes, or integers.
+Open the file in your favorite text editor to modify the file, and re-run it using ruby.
+ Add at least 3 more lines and 3 more erb blocks with different types of contents,
+ consider using strings, arrays, hashes, or integers.
 
 Try modifying the data in the erb blocks using concatenation or other methods.
 
-If you get errors try re-running the generator and reading the error messages. You can add debugging `puts` statements in your view or the script to help you figure out what is going on
+If you get errors try re-running the generator and reading the error messages.
+You can add debugging `puts` statements in your view or the script to help you figure out what is going on
 
 Commit the results to git
 
@@ -85,13 +92,17 @@ In the terminal you can run
 
     $ ruby page_generator.rb
 
-This will loop through all the files in the `views` directory, parse their erb and write the contents to the `public` directory.
+This will loop through all the files in the `views` directory,
+ parse their erb and write the contents to the `public` directory.
 
 Run the generator and drag a page from the `public` directory to your browser, it should render.
 
 homework:
 
-Add another file to the `/views` directory with your name. Add some personalized content directly to the file. Pretend this is geocities and you're making a home-page. Try using different tags such as `<div>`, `<p>`, `<span>`, or look up tags to use on w3c.
+Add another file to the `/views` directory with your name.
+ Add some personalized content directly to the file.
+ Pretend this is geocities and you're making a home-page.
+  Try using different tags such as `<div>`, `<p>`, `<span>`, or look up tags to use on w3c.
 
 Use an array `[]` and the `each` method to output some content on your page in list items. For example:
 
@@ -103,26 +114,40 @@ Use an array `[]` and the `each` method to output some content on your page in l
 
 After each change, you can run the generator and open this page in your browser.
 
-If you get errors try re-running the generator and reading the error messages. You can add debugging `puts` statements in your view or the script to help you figure out what is going on.
+If you get errors try re-running the generator and reading the error messages.
+ You can add debugging `puts` statements in your view or the script to help you
+  figure out what is going on.
 
 Commit the results to git
 
 ## 3) Use a Layout to Add Content to All Pages
 
-If you want to add some content to all the pages such as a header containing a global navigation or a footer containing copyright information it would be tedious to add this to each page. Such a task would not be very DRY (don't repeat yourself) since modifying one file would mean you need to modify many.
+If you want to add some content to all the pages such as a header containing a
+ global navigation or a footer containing copyright information it would be tedious
+ to add this to each page. Such a task would not be very DRY (don't repeat yourself)
+  since modifying one file would mean you need to modify many.
 
-Instead we could have a header erb file and a footer erb file that we could join with the contents in our 'views` directory. This would make modifications simple.
+Instead we could have a header erb file and a footer erb file that we could
+ join with the contents in our 'views` directory. This would make modifications simple.
 
-Even better we can use a layout file. Here we've provided one in `layouts` with the name `application.html.erb`. This file provides an easy way to modify the page before or after the page content, and is very easy to edit since it is all in one place.
+Even better we can use a layout file.
+Here we've provided one in `layouts` with the name `application.html.erb`.
+This file provides an easy way to modify the page before or after the page content,
+and is very easy to edit since it is all in one place.
 
-We are using the concept of **yielding** to a block with ruby, to insert our page contents into the middle of the layout file. If you look in the application file you will see `<%= yield %>` this is where the content for your pages goes. Blocks will be covered later, or you can look up some examples and see the code in `block_example.rb` if you're interested.
+We are using the concept of **yielding** to a block with ruby,
+to insert our page contents into the middle of the layout file.
+If you look in the application file you will see `<%= yield %>`
+this is where the content for your pages goes. Blocks will be covered later,
+or you can look up some examples and see the code in `block_example.rb` if you're interested.
 
 
 In the terminal you can run:
 
     $ ruby page_generator_with_layout.rb
 
-This should take the contents of the files you modified in section #2 and output them again to the `public` directory, only now they have a layout. Drag one of them the browser.
+This should take the contents of the files you modified in section #2 and output them again to the `public` directory,
+only now they have a layout. Drag one of them the browser.
 
 
 Homework:
@@ -133,7 +158,8 @@ Modify the default layout. Add links to some websites in the header & footer. A 
 
 Re-run the `page_generator_with_layout.rb` file and then refresh your page. You should now see links and be able to click on them.
 
-Now that you've got some working links, lets define a ruby method to help us make links in the future. Open up your layout (`application.html.erb`) and declare a function at the top of the file.
+Now that you've got some working links, lets define a ruby method to help us make links in the future.
+ Open up your layout (`application.html.erb`) and declare a function at the top of the file.
 
 
       <%
@@ -142,7 +168,9 @@ Now that you've got some working links, lets define a ruby method to help us mak
          end
         %>
 
-This function is named `link_to` and takes in a two parameters, the first is the name of the link and the last is the url you want to go to. You can replace the link to google above using `link_to` like this.
+This function is named `link_to` and takes in a two parameters,
+ the first is the name of the link and the last is the url you want to go to.
+  You can replace the link to google above using `link_to` like this.
 
 
       <%= link_to('This is a link to google', 'http://google.com') %>
@@ -156,7 +184,10 @@ Commit the results to git
 ## 4) Simple server
 
 If we wanted to let other people see our web pages we would have to provide a way to get our html to their browser.
-Since other computers will not have access to your file system we must make our content available, the easiest way to do this is to use a web server and provide content via a port. If that sounds hard don't worry, it isn't.  Ruby standard library comes with a  server called webrick. We can use this server to serve our html without providing direct access to our file system.
+Since other computers will not have access to your file system we must make our content available,
+ the easiest way to do this is to use a web server and provide content via a port.
+ If that sounds hard don't worry, it isn't.  Ruby standard library comes with a  server called webrick.
+  We can use this server to serve our html without providing direct access to our file system.
 
 In the terminal you can run:
 
@@ -168,7 +199,10 @@ You should see an output that looks something like this:
     [2012-06-15 16:05:28] INFO  ruby 1.9.3 (2012-04-20) [x86_64-darwin11.4.0]
     [2012-06-15 16:05:28] INFO  WEBrick::HTTPServer#start: pid=85507 port=8000
 
-That means our server has started and is listening on port 8000. You can open up a new browser tab and go to [http://localhost:8000/index.html](http://localhost:8000/index.html) and you will see the contents of `public/html/index.html.erb` rendered in your browser. Open `server_simple.rb` in a text editor and take a look at the contents.
+That means our server has started and is listening on port 8000. You can open up a new browser tab
+ and go to [http://localhost:8000/index.html](http://localhost:8000/index.html)
+ and you will see the contents of `public/html/index.html.erb` rendered in your browser.
+  Open `server_simple.rb` in a text editor and take a look at the contents.
 
 
 Homework:
@@ -176,16 +210,21 @@ Homework:
 To restart your server: you can use `CTL + C` to kill your server then restart it by pressing up and hitting enter)
 
 1)
-Try modifying a file in your `views` directory, are there any changes? If not, ask why. Try running the generator script again
+Try modifying a file in your `views` directory, are there any changes? If not, ask why.
+ Try running the generator script again
 
     $ ruby page_generator_with_layout.rb
 
- Then refreshing your web page. Do you see your changes? Why were some of these steps necessary, were all of them needed?
+ Then refreshing your web page. Do you see your changes? Why were some of these steps necessary,
+  were all of them needed?
 
- Any new changes to files in /public will be picked up by the server but if you change something in your /views (html.erb files) you will need to re-run the generator. After this homework, in next section we will automate this task.
+ Any new changes to files in /public will be picked up by the server but if you change something
+ in your /views (html.erb files) you will need to re-run the generator.
+  After this homework, in next section we will automate this task.
 
 2)
-Rather than reading static files you can output any content you generate in ruby. Add this to `server_simple.rb` before the `server.start` line
+Rather than reading static files you can output any content you generate in ruby.
+Add this to `server_simple.rb` before the `server.start` line
 
 
     server.mount_proc '/' do |req, res|
@@ -199,7 +238,11 @@ Commit the results to git
 
 ## 5) Advanced Server
 
-We started off reading in erb to generate static html, then we served static html using a server. In your homework you saw how we could serve content directly from ruby without need to write to a static html file. The next logical step would be to wire up the server to read in the erb template, parse it, and render the html dynamically without having to write to disk.
+We started off reading in erb to generate static html,
+then we served static html using a server.
+ In your homework you saw how we could serve content directly from ruby without need to write to a static html file.
+  The next logical step would be to wire up the server to read in the erb template, parse it,
+  and render the html dynamically without having to write to disk.
 
 In the terminal you can run:
 
@@ -219,23 +262,42 @@ You've been sending your server data and you didn't even know it. Whey you visit
 
 ### Methods of sending data to servers
 
-You can use two methods of sending data to servers, links and forms. You can use simple buttons, but these are just forms with no  elements in them.
+You can use two methods of sending data to servers, links and forms.
+ You can use simple buttons, but these are just forms with no  elements in them.
 
-Forms have [many different field types](http://www.w3schools.com/html/html_forms.asp): text fields, password fields, radio buttons, checkboxes, and submit buttons just to name a few. While there are more complex inputs available like a google maps viewer, these either are built using simple form elements as a baseline or are crafted from scratch with javascript. 90% of the time you'll want to use standard elements and if you need some customization you can add it on top of the element using CSS or javascript. Think back to the facebook status update example, at it's core it's just a text area input and a button.
+Forms have [many different field types](http://www.w3schools.com/html/html_forms.asp): text fields, password fields,
+ radio buttons, checkboxes, and submit buttons just to name a few.
+ While there are more complex inputs available like a google maps viewer, these either are built using simple form
+ elements as a baseline or are crafted from scratch with javascript.
+ 90% of the time you'll want to use standard elements and if you need some customization you can add it on top of
+  the element using CSS or javascript. Think back to the facebook status update example,
+  at it's core it's just a text area input and a button.
 
-In this section we will add a simple text box and button asking visitors to enter their name we can then pull that data from the "request" object from the server and render a message to the user.
+In this section we will add a simple text box and button asking visitors to enter their name we can then pull that data
+from the "request" object from the server and render a message to the user.
 
-Since we're building the html from the server we have access to the request (req) local variable inside of our erb. If you look at the class of the req object you'll see it is a WEBrick::HTTPRequest, and if you search for WEBrick::HTTPRequest docs you will find the [WEBrick::HTTPRequest documentationn](http://www.ruby-doc.org/stdlib-1.9.3/libdoc/webrick/rdoc/WEBrick/HTTPRequest.html). Here we see that if we call `query` on this object wee will get the query returned as a hash. In your layout add this somewhere:
+Since we're building the html from the server we have access to the request (req) local variable inside of our erb.
+ If you look at the class of the req object you'll see it is a WEBrick::HTTPRequest, and if you search for
+  WEBrick::HTTPRequest docs you will find the
+   [WEBrick::HTTPRequest documentationn](http://www.ruby-doc.org/stdlib-1.9.3/libdoc/webrick/rdoc/WEBrick/HTTPRequest.html).
+    Here we see that if we call `query` on this object wee will get the query returned as a hash.
+    In your layout add this somewhere:
 
         <%= @request.query.inspect %>
 
-Now refresh the page, what do you see? Probably an empty hash `{}` try adding a query string on to the end of your url like [http://localhost:8000/index?cat=meow](http://localhost:8000/index?cat=meow). a query string is the stuff after the `?` at the end of a url, when you do a search on google this is how google gets the info.
+Now refresh the page, what do you see? Probably an empty hash `{}` try adding a query string on to the end of your url
+ like [http://localhost:8000/index?cat=meow](http://localhost:8000/index?cat=meow).
+  a query string is the stuff after the `?` at the end of a url,
+   when you do a search on google this is how google gets the info.
 
-You should now see `{"cat" => "meow"}` where you put you `@request.query.inspect`. When you see the data in a query string `?` it means the data was transfered by a GET request. You can even see that it was a GET request in the server log
+You should now see `{"cat" => "meow"}` where you put you `@request.query.inspect`.
+When you see the data in a query string `?` it means the data was transfered by a GET request.
+You can even see that it was a GET request in the server log
 
         localhost - - [16/Jun/2012:16:47:03 CDT] "GET /index?cat=meow HTTP/1.1" 200 444
 
-If you wanted to send data without exposing that via a query string you can do so using a POST request with a form. Add this to your layout:
+If you wanted to send data without exposing that via a query string you can do so using a POST request with a form.
+ Add this to your layout:
 
 
         <form method='post' action="<%= @request.path %>">
@@ -244,7 +306,10 @@ If you wanted to send data without exposing that via a query string you can do s
         </form>
 
 
-Refresh the page, and enter your name, and hit 'submit'. This will send your name in a field called 'first_name' to the server, the server will then parse the erb, call `@request.query` and convert your query to a hash such as ` {"first_name"=>"richard"}` it will then convert the erb to html and server it back to your browser. You should now see your name in the view like this:
+Refresh the page, and enter your name, and hit 'submit'. This will send your name in a field called 'first_name'
+to the server, the server will then parse the erb, call `@request.query` and convert your query
+ to a hash such as ` {"first_name"=>"richard"}` it will then convert the erb to html and server it back to your browser.
+ You should now see your name in the view like this:
 
          {"first_name"=>"bar"}
 
@@ -252,7 +317,10 @@ Note, you will no longer be able to run the generator scripts or the simple serv
 
 Homework:
 
-People like to feel welcomed when they visit a new web page, but they don't like random `{}` characters. Write some logic that if `@request.query['first_name'] && @request.query['first_name'].empty?` then don't show the query hash, otherwise show a welcome message that says their name, for example "Hello Richard". For example you could add this:
+People like to feel welcomed when they visit a new web page, but they don't like random `{}` characters.
+ Write some logic that if `@request.query['first_name'] && @request.query['first_name'].empty?`
+ then don't show the query hash, otherwise show a welcome message that says their name,
+ for example "Hello Richard". For example you could add this:
 
 
       <% if @request.query['first_name'] && !@request.query['first_name'].empty? %>
@@ -265,16 +333,25 @@ People like to feel welcomed when they visit a new web page, but they don't like
 In ruby only `nil` and `false` will evaluate as false see the data in `boolean_logic_cheatsheet.rb` in this project
 
 
-Now add another field from [HTML Forms and Input](http://www.w3schools.com/html/html_forms.asp) such as radio button text area, or checkbox to your form. Now display this information to the users of your page.
+Now add another field from [HTML Forms and Input](http://www.w3schools.com/html/html_forms.asp) such as radio button text area,
+or checkbox to your form. Now display this information to the users of your page.
 
 Commit the results.
 
 # Done
 
-What did we just do? We started off turning erb (the ruby code) into html. We modified our files with ruby code and even had arrays (.each) generate lists for us. How cool is that! We got lazy and added a simple way to add a layout (application.html.erb) to our website. Then we learned how to serve static html pages with a simple server. Finally we saw how to generate truly dynamic content using the advanced server. It read in the erb files, generated html and returned that html directly to browsers without having to write it to a static file first. The advanced server even understands query strings in urls `?cat=meow` and how to manipulate html based on a `first_name` form.
+What did we just do? We started off turning erb (the ruby code) into html.
+ We modified our files with ruby code and even had arrays (.each) generate lists for us.
+  How cool is that! We got lazy and added a simple way to add a layout (application.html.erb) to our website.
+  Then we learned how to serve static html pages with a simple server.
+  Finally we saw how to generate truly dynamic content using the advanced server.
+  It read in the erb files, generated html and returned that html directly to browsers without having to write
+  it to a static file first. The advanced server even understands query strings in urls `?cat=meow`
+  and how to manipulate html based on a `first_name` form.
 
 
-You are an incredible person. Way to go! Understanding how to manipulate views in the context of a server is a large part of what Rails developers do every day.
+You are an incredible person. Way to go! Understanding how to manipulate views in the context of a server is a
+large part of what Rails developers do every day.
 
 Don't forget to push your changes back to your fork.
 

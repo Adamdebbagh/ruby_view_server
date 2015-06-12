@@ -13,7 +13,7 @@ puts "============================================================"
 Dir['views/*.html.erb'].each do |file|
   puts "- Reading #{file}"
 
-  view_string  = File.open(file, 'r').read
+  view_string     = File.open(file, 'r').read
   file_name       = file.split('/').last.gsub('html.erb', 'html')
   output_file     = "public/#{file_name}"
   main_contents   = process_erb(view_string)
